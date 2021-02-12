@@ -1,0 +1,110 @@
+.inputForm {
+  width: 300px;
+  height: 60px;
+  border-radius: 20px 0px 0px 20px;
+  text-align: center;
+  border: 1px solid white !important;
+}
+.inputForm:after {
+  border: none !important;
+}
+input:focus {
+  outline: none;
+}
+.date{
+  font-size:12px
+}
+.btn:focus {
+  shadow: none;
+}
+.rain {
+  color: lightgray;
+  font-size: 24px;
+  margin-left: 10px;
+}
+.pressure {
+  color: lightgray;
+  font-size: 25px;
+  margin-left: 10px;
+}
+.wind {
+  color: white;
+  font-size: 25px;
+  margin-left: 10px;
+}
+.detailsRow {
+  margin-top: 15px !important;
+}
+.detailsRow.first {
+  margin-top: 20px !important;
+  border-top:1px solid white;
+  padding-top: 12px;
+}
+.currentWeatherIcon{
+  width:70px
+}
+
+.btn {
+  width: 100px !important;
+  background-color: #121212 !important;
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid white !important;
+  border-radius: 0px 20px 20px 0px !important;
+  border-left: none !important;
+  color: white;
+}
+.search {
+  color: whitesmoke;
+}
+.songRow {
+  border: 1px solid black;
+  border-bottom: none;
+  height: 70px;
+}
+.lastRow {
+  border-top: 1px solid black;
+}
+.nameSong {
+  margin-top: 20px;
+}
+.nameCol {
+  border-right: 1px solid black;
+}
+.playBtn {
+  width: 50px;
+  height: 30px;
+  margin-top: 18px;
+  font-weight: 3;
+}
+.durationCol {
+  border-right: 1px solid black;
+  padding: 20px;
+}
+.inputRow {
+  margin-top: -180px;
+}
+.mainSearchRow {
+  margin-top: -150px;
+}
+.weatherForDay {
+  height: 300px;
+  width: 70px;
+  border: 1px solid white;
+  border-radius: 10px;
+  z-index: 10;
+}
+.dateCol {
+  color: white;
+  margin-top: 10px;
+  font-size:20px;
+}
+.temperature {
+  color: white;
+}
+.temp {
+  font-size: 37px;
+}
+.value{
+  color: lightgray !important;
+  margin-left: 3px;
+}
