@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Button, Container } from "react-bootstrap";
 import "./searchEngine.css";
 import { connect } from "react-redux";
+import {BsFillStarFill as BsStar} from "react-icons/bs"
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
   changeWeather: (city) =>
@@ -64,7 +65,18 @@ class SearchEngine extends Component {
   };
   state = {
     textForSearch: "",
+    liked : false
   };
+  addToFavourties = async () => {
+    if(this.state.liked === false){
+      this.setState({liked:true});
+      //add to liked
+    }else{
+      this.setState({liked:false});
+      //remove from liked
+    }
+   
+  }
   changeWeatherLoading = async () => {
     this.props.startLoading();
     await this.props.changeWeather(this.state.textForSearch);
@@ -92,6 +104,10 @@ class SearchEngine extends Component {
             />
           </Row>
           <Row className="inputRow d-flex justify-content-center mb-4">
+          <button className="btn2" onClick={() => this.addToFavourties()}>
+            <BsStar className = {this.state.liked ? "starLiked" : "star"}/>
+              <h className="search"></h>
+            </button>
             <input
               type="text"
               className="inputForm"

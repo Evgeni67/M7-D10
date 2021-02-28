@@ -12,6 +12,20 @@ import {
 import "./searchEngine.css";
 import { connect } from "react-redux";
 const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => ({
+  addToken: (token) =>
+    dispatch(async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: "ADD_TOKEN",
+          payload: token,
+        });
+      } catch (e) {
+        console.log("Adding token in redux is not okay", e);
+      }
+    }),
+ 
+});
 class Login extends Component {
   state = {
     passwordValidation: "",
@@ -41,7 +55,7 @@ class Login extends Component {
     };
     await fetch("http://localhost:9000/users/login", requestOptions)
       .then((response) => response.json())
-      .then((data) => this.setState({ tokens: data }));
+      .then((data) => console.log("Data",data));
     this.setState({ loading: false });
      window.location = "/home";
   };
@@ -102,4 +116,4 @@ class Login extends Component {
     );
   }
 }
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

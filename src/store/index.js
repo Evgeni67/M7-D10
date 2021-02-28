@@ -1,6 +1,8 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import loadingReducer from "../reducers/loadingReducer";
 import weatherReducer from "../reducers/weatherReducer";
+import tokensReducer from "../reducers/tokensReducer";
+
 import thunk from 'redux-thunk'
 
 const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // whats compose used for?
@@ -20,7 +22,7 @@ export const initialState = {
   },
   
 };
-const bigReducer = combineReducers({ currentWeather:weatherReducer, load:loadingReducer });
+const bigReducer = combineReducers({ currentWeather:weatherReducer, load:loadingReducer,currentTokens:tokensReducer });
 
 export default function configureStore() {
   return createStore(

@@ -1,18 +1,29 @@
 .inputForm {
-  width: 300px;
+  width: 290px;
   height: 60px;
-  border-radius: 20px 0px 0px 20px;
   text-align: center;
   border: 1px solid white !important;
 }
 .inputForm:after {
   border: none !important;
 }
+.starLiked{
+  color:yellow;
+  font-size:28px;
+  transition:ease-in-out 0.5s
+}
+.star{
+  font-size:20px;
+  transition:ease-in-out 0.5s
+}
 input:focus {
   outline: none;
 }
 .date{
   font-size:12px
+}
+.btn2:focus{
+  shadow:none
 }
 .btn:focus {
   shadow: none;
@@ -43,7 +54,15 @@ input:focus {
 .currentWeatherIcon{
   width:70px
 }
-
+.btn2{
+  width: 100px !important;
+  background-color: #121212 !important;
+  border-radius: 0px 20px 20px 0px;
+  border: 1px solid white !important;
+  border-radius: 20px 0px 0px 20px !important;
+  border-left: none !important;
+  color: white;
+}
 .btn {
   width: 100px !important;
   background-color: #121212 !important;
