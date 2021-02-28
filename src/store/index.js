@@ -6,6 +6,10 @@ import thunk from 'redux-thunk'
 const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // whats compose used for?
 
 export const initialState = {
+  currentTokens:{
+    token:"",
+    refreshToken:""
+  },
   currentWeather: {
    weather:{}
   },

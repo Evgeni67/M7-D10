@@ -8,7 +8,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(async (dispatch, getState) => {
       try {
         let response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=1a944dea54d850b601ad666177b6deb2`,
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=31fe0be1c223175da748f0d57c0e32e9`,
           {
             method: "GET",
           }
@@ -71,12 +71,11 @@ class SearchEngine extends Component {
     this.props.notLoaded();
     if (!this.props.currentWeather.weather.message) {
       const that = this;
-      setTimeout(function(){
+      setTimeout(function () {
         that.props.stopLoading();
         that.props.loaded();
         that.props.validCity();
-      }, 1500); 
-     
+      }, 1500);
     } else {
       this.props.invalidCity();
       this.props.stopLoading();
@@ -99,7 +98,9 @@ class SearchEngine extends Component {
               placeholder="   Location"
               onChange={(e) => this.dynamicTyping(e)}
             ></input>
-            <button className = "btn"onClick={() => this.changeWeatherLoading()}><h className = "search">Search</h></button>
+            <button className="btn" onClick={() => this.changeWeatherLoading()}>
+              <h className="search">Search</h>
+            </button>
           </Row>
         </Container>
       </>

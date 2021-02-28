@@ -5,6 +5,10 @@ import { connect } from "react-redux";
 import SearchEngine from "./components/searchEngine";
 import Weather from "./components/weather";
 import { Row, Col, Button, Container } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Navbar from "./components/navbar";
+import Login from "./components/register";
+import Register from "./components/login";
 import "bootstrap/dist/css/bootstrap.css";
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
@@ -38,23 +42,33 @@ class App extends Component {
   render() {
     return (
       <>
-        <SearchEngine />
-        {this.props.load.loading && (
-          <Row className="d-flex justify-content-center">
-            <img
-              className="loadingImage"
-              src="https://www.bluvale.com/skin/frontend/bluvale/default/images/more/loader/loading-white2.gif"
-            />
-          </Row>
-        )}
+        <Router>
+          <Route path = "/register">
+            <Login/>
+            </Route>
+            <Route path = "/login">
+            <Register/>
+            </Route>
+           <Route path = "/home">
+          <SearchEngine />
+          {this.props.load.loading && (
+            <Row className="d-flex justify-content-center">
+              <img
+                className="loadingImage"
+                src="https://www.bluvale.com/skin/frontend/bluvale/default/images/more/loader/loading-white2.gif"
+              />
+            </Row>
+          )}
 
-        {this.props.load.loaded && <Weather />}
-        
-        {this.props.load.loadedInvalidCity && !this.props.load.loading && (
-          <Row className="d-flex justify-content-center">
-            <p className="errorMessage">Please enter e real city</p>
-          </Row>
-        )}
+          {this.props.load.loaded && <Weather />}
+
+          {this.props.load.loadedInvalidCity && !this.props.load.loading && (
+            <Row className="d-flex justify-content-center">
+              <p className="errorMessage">Please enter e real city</p>
+            </Row>
+          )}
+          </Route>
+        </Router>
       </>
     );
   }
