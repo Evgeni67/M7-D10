@@ -9,6 +9,12 @@ import {
   Form,
   FormControl,
 } from "react-bootstrap";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import "./searchEngine.css";
 import { connect } from "react-redux";
 const mapStateToProps = (state) => state;
@@ -24,7 +30,17 @@ const mapDispatchToProps = (dispatch) => ({
         console.log("Adding token in redux is not okay", e);
       }
     }),
- 
+    addRefreshToken: (token) =>
+    dispatch(async (dispatch, getState) => {
+      try {
+        dispatch({
+          type: "ADD_REFRESH_TOKEN",
+          payload: token,
+        });
+      } catch (e) {
+        console.log("Adding token in redux is not okay", e);
+      }
+    }),
 });
 class Login extends Component {
   state = {
@@ -34,6 +50,10 @@ class Login extends Component {
     loading: false,
     tokens: {}
   };
+  addTokens = (data) => {
+    this.props.addToken(data.token)
+    this.props.addRefreshToken(data.refreshToken)
+  }
   changePasswordValidation = (e) => {
     this.setState({ passwordValidation: e.target.value });
   };
@@ -55,13 +75,19 @@ class Login extends Component {
     };
     await fetch("http://localhost:9000/users/login", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log("Data",data));
+      .then((data) =>  this.addTokens(data));
+      localStorage.setItem('token', this.props.currentTokens.token);
+      localStorage.setItem('refreshToken',  this.props.currentTokens.refreshToken);
+      const cat = localStorage.getItem('myCat');
+      console.log(cat)
     this.setState({ loading: false });
-     window.location = "/home";
+     console.log(this.state.tokens)
+     window.location = "/home"
   };
   render() {
     return (
       <>
+      <Router>
         <Container className="mainSearchRow">
           <Row className="d-flex justify-content-center">
             <img
@@ -94,6 +120,7 @@ class Login extends Component {
               ></input>
             </Row>
             <Row className=" d-flex justify-content-center mb-4">
+              <Link to = "/home">
               <button
                 className="registerButton"
                 variant="info"
@@ -101,6 +128,7 @@ class Login extends Component {
               >
                 Login
               </button>
+              </Link>
             </Row>
             <Row className=" d-flex justify-content-center mb-4">
               <img
@@ -112,6 +140,7 @@ class Login extends Component {
             </Row>
           </div>
         </Container>
+        </Router>
       </>
     );
   }

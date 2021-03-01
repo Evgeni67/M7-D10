@@ -1,0 +1,42 @@
+.navbarr {
+  background-color: #E9E9E9;
+  position: absolute;
+  left: -100 !important;
+  height: 100%;
+  width: 500px !important;
+  transition: ease-in-out 0.5s;
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+  z-index:10
+}
+.navBar {
+  background-color: #E9E9E9;
+  background-repeat: no-repeat;
+  background-size: 400% 100%;
+  position: absolute;
+  left: -100 !important;
+  height: 100%;
+  width: 90px !important;
+  transition: ease-in-out 0.5s;
+  z-index:10
+}
+.cnnImage {
+  margin-right: 90px;
+  position: absolute;
+  top:0;right:0
+  
+}
+.cityNames{
+  margin-top: 340px;
+  margin-right: 360px;
+  position: absolute;
+  top:0;right:0
+}
+.city{
+  font-size:20px;
+  margin-left: 10px !important;
+}
+.city2{
+  font-size:22px;
+  margin-left: 10px !important;
+}

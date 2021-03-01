@@ -42,6 +42,7 @@ class App extends Component {
   render() {
     return (
       <>
+    
         <Router>
           <Route path = "/register">
             <Login/>
@@ -50,6 +51,7 @@ class App extends Component {
             <Register/>
             </Route>
            <Route path = "/home">
+           <Navbar/>
           <SearchEngine />
           {this.props.load.loading && (
             <Row className="d-flex justify-content-center">

@@ -60,8 +60,13 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class SearchEngine extends Component {
+  componentDidMount = () => {
+    
+  }
   dynamicTyping = (e) => {
     this.setState({ textForSearch: e.currentTarget.value });
+    console.log(localStorage.getItem("token"))
+    console.log(localStorage.getItem("refreshToken"))
   };
   state = {
     textForSearch: "",
