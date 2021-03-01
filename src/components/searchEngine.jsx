@@ -75,7 +75,13 @@ class SearchEngine extends Component {
   addToFavourties = async () => {
     if(this.state.liked === false){
       this.setState({liked:true});
-      //add to liked
+      const requestOptions = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password:this.state.password,email:this.state.password,favourites:[],refreshTokens:[] })
+    };
+    await fetch("http://localhost:9000/users/register", requestOptions)
+        .then(response => response.json())
     }else{
       this.setState({liked:false});
       //remove from liked

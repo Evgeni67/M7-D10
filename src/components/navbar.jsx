@@ -13,11 +13,11 @@ import "./navbar.scss";
 import { connect } from "react-redux";
 const mapStateToProps = (state) => state;
 class MyNavbar extends Component {
-  state = { isExpanded: false, favourites: [], id:"" };
- setIdAndTokens = (data) => {
-    this.setState({ favourites: data.favourites })
-    this.setState({ id: data._id })
-  }
+  state = { isExpanded: false, favourites: [], id: "" };
+  setIdAndTokens = (data) => {
+    this.setState({ favourites: data.favourites });
+    this.setState({ id: data._id });
+  };
   componentDidMount = async () => {
     console.log("data");
     const requestOptions = {
@@ -50,9 +50,11 @@ class MyNavbar extends Component {
                 src="https://d24j9r7lck9cin.cloudfront.net/l/o/7/7355.1591920159.png"
                 className="cnnImage"
               />
-              <div className  ="cityNames">
-              <p className = "city2">FAVOURITES</p>
-              {this.state.favourites.map(city => <p className = "city">{city}</p>)}
+              <div className="cityNames">
+                <p className="city2">FAVOURITES</p>
+                {this.state.favourites.map((city) => (
+                  <p className="city">{city}</p>
+                ))}
               </div>
               <br />
             </div>
